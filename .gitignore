@@ -4,8 +4,6 @@
 web/uploads/*
 web/bundles/*
 web/.htaccess
-web/css/*
-web/js/*
 /vendor/
 /components/
 
