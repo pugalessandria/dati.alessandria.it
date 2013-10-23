@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Cerca | {{ parent() }}{% endblock %}
+{% block page_title %}Cerca{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="span12">
+            {{ form(form) }}
+
+            <ul>
+                {% for result in results %}
+                    <li>{{ result }}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+{% endblock %}

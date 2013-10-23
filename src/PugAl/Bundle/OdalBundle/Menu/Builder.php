@@ -15,6 +15,7 @@ class Builder extends ContainerAware {
     $menu = $factory->createItem('root');
 
     $menu->addChild('Dataset', array('route' => 'list'));
+    $menu->addChild('Cerca', array('route' => 'cerca'));
 
     return $menu;
   }

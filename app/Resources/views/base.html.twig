@@ -8,29 +8,93 @@
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     {% endblock %}
 
+    <style type="text/css">
+
+        /* Sticky footer styles
+        -------------------------------------------------- */
+
+        html,
+        body {
+            height: 100%;
+            /* The html and body elements cannot have any padding or margin. */
+        }
+
+        /* Wrapper for page content to push down footer */
+        #wrap {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            /* Negative indent footer by it's height */
+            margin: 0 auto -60px;
+        }
+
+        /* Set the fixed height of the footer here */
+        #push,
+        #footer {
+            height: 60px;
+        }
+
+        #footer {
+            background-color: #f5f5f5;
+        }
+
+        /* Lastly, apply responsive CSS fixes as necessary */
+        @media (max-width: 767px) {
+            #footer {
+                margin-left: -20px;
+                margin-right: -20px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        #wrap > .container {
+            padding-top: 60px;
+        }
+
+        .container .credit {
+            margin: 20px 0;
+        }
+
+        code {
+            font-size: 80%;
+        }
+
+    </style>
+
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                {% block navigation %}
-                    <div class="navbar">
-                        <div class="navbar-inner">
-                            <div class="container-fluid">
-                                <a class="brand" href="/">Odal</a>
-                                {{ knp_menu_render('PugAlOdalBundle:Builder:mainMenu', {'nav_type': 'navbar'}) }}
-                            </div>
-                        </div>
+    <div id="wrap">
+        {% block navigation %}
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand" href="/">Odal</a>
+                        {{ knp_menu_render('PugAlOdalBundle:Builder:mainMenu', {'nav_type': 'navbar'}) }}
                     </div>
-                {% endblock navigation %}
-
+                </div>
             </div>
+        {% endblock navigation %}
+
+        <div class="container">
+
+            {% if title is defined %}
+            <div class="page-header">
+                <h1>{% block page_title %}{{ title }}{% endblock %}</h1>
+            </div>
+            {% endif %}
+
+            {% block content %}{% endblock %}
         </div>
+        <div id="push"></div>
+    </div>
 
-        {% block content %}{% endblock %}
-
+    <div id="footer">
+        <div class="container">
+            <p class="muted credit">OpenDataAlessandria</p>
+        </div>
     </div>
 {% endblock %}
 
