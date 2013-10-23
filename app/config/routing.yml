@@ -1,4 +1,4 @@
-pug_al_odal:
+pugal_odal:
     resource: "@PugAlOdalBundle/Resources/config/routing.yml"
     prefix:   /
 

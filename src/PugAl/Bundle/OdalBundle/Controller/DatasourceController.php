@@ -6,12 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DefaultController extends Controller {
+class DatasourceController extends Controller {
   /**
-   * @Route("/")
+   * @Route("/list", name="list")
    * @Template()
    */
-  public function indexAction() {
-    return $this->render('PugAlOdalBundle:Default:index.html.twig');
+  public function listAction() {
+    return $this->render('PugAlOdalBundle:Datasource:list.html.twig');
   }
+
 }
