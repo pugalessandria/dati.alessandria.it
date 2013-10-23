@@ -1,0 +1,19 @@
+# Symfony directories
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+web/.htaccess
+web/css/*
+web/js/*
+/vendor/
+/components/
+
+# Configuration files
+app/config/parameters.ini
+app/config/parameters.yml
+app/bootstrap.php.cache
+
+# PHPStorm
+.idea*
+

@@ -1,0 +1,3 @@
+pug_al_odal_homepage:
+    pattern:  /
+    defaults: { _controller: PugAlOdalBundle:Default:index }
