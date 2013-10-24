@@ -11,7 +11,7 @@ use Guzzle\Http\Client;
 
 class DatasetController extends Controller {
   /**
-   * @Route("/list", name="list")
+   * @Route("/dataset/list", name="list")
    * @Template()
    */
   public function listAction() {
@@ -27,7 +27,7 @@ class DatasetController extends Controller {
   }
 
   /**
-   * @Route("/cerca", name="cerca")
+   * @Route("/dataset/search", name="search")
    * @Template()
    */
   public function searchAction(Request $request) {
@@ -54,7 +54,13 @@ class DatasetController extends Controller {
         $request2 = $client->get('/rpapisrv/api/rest/package/' . $result);
         $response2 = $request2->send();
         $body2 = $response2->json();
-        $results[] = $body2['title'];
+
+        $data = array(
+          'title' => $body2['title'],
+          'id' => $body2['id'],
+        );
+
+        $results[] = $data;
       }
     }
 
@@ -62,6 +68,22 @@ class DatasetController extends Controller {
       'title' => 'Cerca',
       'form' => $form->createView(),
       'results' => $results,
+    );
+  }
+
+  /**
+   * @Route("/dataset/detail/{dataset}", name="detail")
+   * @Template()
+   */
+  public function detailAction(Request $request, $dataset) {
+    $client = new Client('http://www.dati.piemonte.it');
+    $request = $client->get('/rpapisrv/api/rest/package/' . $dataset);
+    $response = $request->send();
+    $body = $response->json();
+
+    return array(
+      'title' => $body['title'],
+      'body' => $body,
     );
   }
 

@@ -2,68 +2,28 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}dati.alesssandria.it{% endblock %}</title>
+
+    <title>
+        {% block title %}
+            {% if title is defined %}
+                {{ title }} | dati.alesssandria.it
+            {% else %}
+                dati.alesssandria.it
+            {% endif %}
+        {% endblock %}
+    </title>
 
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     {% endblock %}
 
-    <style type="text/css">
-
-        /* Sticky footer styles
-        -------------------------------------------------- */
-
-        html,
-        body {
-            height: 100%;
-            /* The html and body elements cannot have any padding or margin. */
-        }
-
-        /* Wrapper for page content to push down footer */
-        #wrap {
-            min-height: 100%;
-            height: auto !important;
-            height: 100%;
-            /* Negative indent footer by it's height */
-            margin: 0 auto -60px;
-        }
-
-        /* Set the fixed height of the footer here */
-        #push,
-        #footer {
-            height: 60px;
-        }
-
-        #footer {
-            background-color: #f5f5f5;
-        }
-
-        /* Lastly, apply responsive CSS fixes as necessary */
-        @media (max-width: 767px) {
-            #footer {
-                margin-left: -20px;
-                margin-right: -20px;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-        }
-
-        #wrap > .container {
-            padding-top: 60px;
-        }
-
-        .container .credit {
-            margin: 20px 0;
-        }
-
-        code {
-            font-size: 80%;
-        }
-
-    </style>
+    {% stylesheets filter='compass' '@PugAlOdalBundle/Resources/assets/css/odal.scss' %}
+    <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
+
 <body>
 {% block body %}
     <div id="wrap">
@@ -71,7 +31,7 @@
             <div class="navbar navbar-fixed-top">
                 <div class="navbar-inner">
                     <div class="container">
-                        <a class="brand" href="/">Odal</a>
+                        <a class="brand" href="/">dati.alessandria.it</a>
                         {{ knp_menu_render('PugAlOdalBundle:Builder:mainMenu', {'nav_type': 'navbar'}) }}
                     </div>
                 </div>
@@ -81,9 +41,9 @@
         <div class="container">
 
             {% if title is defined %}
-            <div class="page-header">
-                <h1>{% block page_title %}{{ title }}{% endblock %}</h1>
-            </div>
+                <div class="page-header">
+                    <h1>{% block page_title %}{{ title }}{% endblock %}</h1>
+                </div>
             {% endif %}
 
             {% block content %}{% endblock %}

@@ -1,8 +1,5 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}Cerca | {{ parent() }}{% endblock %}
-{% block page_title %}Cerca{% endblock %}
-
 {% block content %}
     <div class="row">
         <div class="span12">
@@ -10,7 +7,7 @@
 
             <ul>
                 {% for result in results %}
-                    <li>{{ result }}</li>
+                    <li><a href="{{ path('detail', {'dataset': result.id}) }}">{{ result.title }}</a></li>
                 {% endfor %}
             </ul>
 

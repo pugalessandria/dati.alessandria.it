@@ -34,13 +34,10 @@ assetic:
     filters:
         less:
             node:       /usr/local/bin/node
-            node_paths: [/usr/local/lib/node_modules]
+            node_paths: [/usr/local/less/lib, /usr/local/bin/node, /usr/local/lib/node_modules]
             apply_to:   "\.less$"
         cssrewrite: ~
         compass: ~
-        less:
-            node: /usr/local/bin/node
-            node_paths: [/usr/local/less/lib, /usr/local/bin/node, /usr/local/lib/node_modules]
 
 # Doctrine Configuration
 doctrine:
