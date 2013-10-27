@@ -1,0 +1,6 @@
+<input type="text" class="search-query" placeholder="Parole chiave" ng-model="keywords"/>
+<input type="button" value="Cerca" class="btn" ng-click="search()"/>
+
+<ul id="results">
+    <li ng-repeat="dataset in datasets"><a href="dataset#/view/{{dataset.id}}">{{dataset.title}}</a></li>
+</ul>

@@ -1,6 +1,17 @@
-/* Sticky footer styles
-        -------------------------------------------------- */
-/* line 5, assetic_compassaWGlUd.scss */
+/* Dataset */
+
+#results {
+  margin-top: 20px;
+}
+
+#butterbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Sticky footer styles */
+
 html,
 body {
   height: 100%;
@@ -8,7 +19,6 @@ body {
 }
 
 /* Wrapper for page content to push down footer */
-/* line 11, assetic_compassaWGlUd.scss */
 #wrap {
   min-height: 100%;
   height: auto !important;
@@ -18,20 +28,17 @@ body {
 }
 
 /* Set the fixed height of the footer here */
-/* line 21, assetic_compassaWGlUd.scss */
 #push,
 #footer {
   height: 60px;
 }
 
-/* line 25, assetic_compassaWGlUd.scss */
 #footer {
   background-color: #f5f5f5;
 }
 
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
-  /* line 31, assetic_compassaWGlUd.scss */
   #footer {
     margin-left: -20px;
     margin-right: -20px;
@@ -39,17 +46,15 @@ body {
     padding-right: 20px;
   }
 }
-/* line 39, assetic_compassaWGlUd.scss */
+
 #wrap > .container {
   padding-top: 60px;
 }
 
-/* line 43, assetic_compassaWGlUd.scss */
 .container .credit {
   margin: 20px 0;
 }
 
-/* line 47, assetic_compassaWGlUd.scss */
 code {
   font-size: 80%;
 }

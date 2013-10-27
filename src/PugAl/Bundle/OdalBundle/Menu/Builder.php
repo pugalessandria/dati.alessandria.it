@@ -14,8 +14,8 @@ class Builder extends ContainerAware {
   public function mainMenu(FactoryInterface $factory, array $options) {
     $menu = $factory->createItem('root');
 
-    $menu->addChild('Dataset', array('route' => 'list'));
-    $menu->addChild('Cerca', array('route' => 'search'));
+    //$menu->addChild('Dataset', array('route' => 'list'));
+    $menu->addChild('Dataset', array('route' => 'dataset'));
 
     return $menu;
   }

@@ -24,5 +24,6 @@ monolog:
             type:  chromephp
             level: info
 
-#swiftmailer:
-#    delivery_address: me@example.com
+# Assetic Configuration
+assetic:
+    use_controller: true

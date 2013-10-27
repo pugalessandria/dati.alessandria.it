@@ -1,5 +1,13 @@
-/* Sticky footer styles
-        -------------------------------------------------- */
+/* Dataset */
+#results {
+  margin-top: 20px; }
+
+#butterbar {
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+/* Sticky footer styles */
 html,
 body {
   height: 100%;

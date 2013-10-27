@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="span12" ng-app="search" style="position:relative">
+            <div butterbar id="butterbar"><i class="icon-refresh"></i> Un attimo di pazienza...</div>
+            <div ng-view></div>
+        </div>
+    </div>
+{% endblock %}

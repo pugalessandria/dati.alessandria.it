@@ -37,7 +37,8 @@ assetic:
             node_paths: [/usr/local/less/lib, /usr/local/bin/node, /usr/local/lib/node_modules]
             apply_to:   "\.less$"
         cssrewrite: ~
-        compass: ~
+        scss:
+            apply_to: "\.scss$"
 
 # Doctrine Configuration
 doctrine:
