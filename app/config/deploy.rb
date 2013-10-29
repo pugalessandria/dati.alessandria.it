@@ -7,12 +7,15 @@ set :user, "root"
 #set :shared_files, ["app/config/parameters.yml"]
 set :shared_children, [app_path + "/logs", web_path + "/uploads", "vendor"]
 set :use_composer, true
-set :vendors_mode, "install"
+
+set :writable_dirs, ["app/cache", "app/logs"]
+set :webserver_user, "www-data"
+set :permission_method, :acl
+set :use_set_permissions, true
 
 set :scm, :git
 set :repository, "https://github.com/pugalessandria/dati.alessandria.it.git"
 set :deploy_via, :remote_cache
-
 
 role :web, domain
 role :app, domain, :primary => true
