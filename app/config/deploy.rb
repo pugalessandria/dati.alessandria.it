@@ -4,7 +4,7 @@ set :deploy_to, "/var/www/#{application}"
 set :app_path, "app"
 set :user, "root"
 
-#set :shared_files, ["app/config/parameters.yml"]
+set :shared_files, [app_path + "/config/parameters.yml", web_path + "/.htaccess"]
 set :shared_children, [app_path + "/logs", web_path + "/uploads", "vendor"]
 set :use_composer, true
 
@@ -22,4 +22,3 @@ role :app, domain, :primary => true
 
 set :use_sudo, false
 set :keep_releases, 3
-
