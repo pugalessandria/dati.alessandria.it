@@ -4,3 +4,5 @@
 <ul id="results">
     <li ng-repeat="dataset in datasets"><a href="dataset#/view/{{dataset.id}}">{{dataset.title}}</a></li>
 </ul>
+
+<p ng-hide="datasets.length = 0">Nessun risultato</p>

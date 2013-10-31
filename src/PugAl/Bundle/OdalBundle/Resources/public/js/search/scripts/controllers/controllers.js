@@ -2,16 +2,17 @@
 
 var app = angular.module('search', ['ngRoute', 'search.directives', 'search.services']);
 
-app.controller('SearchCtrl', ['$scope', 'Search', '$rootScope', function ($scope, Search, $rootScope) {
+app.controller('SearchCtrl', ['$scope', '$location', 'DatasetHolder', '$log', function ($scope, $location, DatasetHolder, $log, datasets) {
     $scope.search = function () {
-        $rootScope.$broadcast('search:start');
-        $scope.datasets = Search.query({keywords: $scope.keywords}, function () {
-            $rootScope.$broadcast('search:end');
-        });
+        DatasetHolder.setKeywords($scope.keywords);
+        $location.path('/search/' + $scope.keywords);
     }
+
+    $scope.keywords = DatasetHolder.getKeywords();
+    //$scope.datasets = datasets;
 }]);
 
-app.controller('DetailCtrl', ['$scope', 'dataset', '$location', function ($scope, dataset, $location) {
+app.controller('DetailCtrl', ['$scope', 'dataset', '$location', 'DatasetHolder', function ($scope, dataset, $location, DatasetHolder) {
     $scope.dataset = dataset;
 
     $scope.back = function () {
@@ -19,10 +20,18 @@ app.controller('DetailCtrl', ['$scope', 'dataset', '$location', function ($scope
     }
 }]);
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
         when('/', {
             controller: 'SearchCtrl',
+            templateUrl: '/bundles/pugalodal/js/search/views/search.html'
+        }).when('/search/:keywords', {
+            controller: 'SearchCtrl',
+            resolve: {
+                datasets: function (Searcher) {
+                    return Searcher();
+                }
+            },
             templateUrl: '/bundles/pugalodal/js/search/views/search.html'
         }).when('/view/:datasetId', {
             controller: 'DetailCtrl',
@@ -33,4 +42,6 @@ app.config(['$routeProvider', function ($routeProvider) {
             },
             templateUrl: '/bundles/pugalodal/js/search/views/detail.html'
         }).otherwise({redirectTo: '/'});
+
+    $locationProvider.html5Mode(false);
 }]);
