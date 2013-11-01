@@ -2,17 +2,16 @@
 
 var app = angular.module('search', ['ngRoute', 'search.directives', 'search.services']);
 
-app.controller('SearchCtrl', ['$scope', '$location', 'DatasetHolder', '$log', function ($scope, $location, DatasetHolder, $log, datasets) {
+app.controller('SearchCtrl', ['$scope', 'Search', '$rootScope', function ($scope, Search, $rootScope) {
     $scope.search = function () {
-        DatasetHolder.setKeywords($scope.keywords);
-        $location.path('/search/' + $scope.keywords);
+        $rootScope.$broadcast('search:start');
+        $scope.results = Search.query({keywords: $scope.keywords}, function () {
+            $rootScope.$broadcast('search:end');
+        });
     }
-
-    $scope.keywords = DatasetHolder.getKeywords();
-    //$scope.datasets = datasets;
 }]);
 
-app.controller('DetailCtrl', ['$scope', 'dataset', '$location', 'DatasetHolder', function ($scope, dataset, $location, DatasetHolder) {
+app.controller('DetailCtrl', ['$scope', 'dataset', '$location', function ($scope, dataset, $location) {
     $scope.dataset = dataset;
 
     $scope.back = function () {
@@ -20,18 +19,10 @@ app.controller('DetailCtrl', ['$scope', 'dataset', '$location', 'DatasetHolder',
     }
 }]);
 
-app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.
         when('/', {
             controller: 'SearchCtrl',
-            templateUrl: '/bundles/pugalodal/js/search/views/search.html'
-        }).when('/search/:keywords', {
-            controller: 'SearchCtrl',
-            resolve: {
-                datasets: function (Searcher) {
-                    return Searcher();
-                }
-            },
             templateUrl: '/bundles/pugalodal/js/search/views/search.html'
         }).when('/view/:datasetId', {
             controller: 'DetailCtrl',
@@ -42,6 +33,4 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             },
             templateUrl: '/bundles/pugalodal/js/search/views/detail.html'
         }).otherwise({redirectTo: '/'});
-
-    $locationProvider.html5Mode(false);
 }]);

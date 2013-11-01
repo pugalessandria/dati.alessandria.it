@@ -2,9 +2,20 @@
 
 {% block content %}
     <div class="row">
-        <div class="span12" ng-app="search" style="position:relative">
-            <div butterbar id="butterbar"><i class="icon-refresh"></i> Un attimo di pazienza...</div>
+        <div class="col-md-12" ng-app="search" style="position:relative">
+            <div butterbar id="butterbar"><span class="glyphicon glyphicon-refresh"></span> Un attimo di pazienza...</div>
             <div ng-view></div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+    '@PugAlOdalBundle/Resources/public/js/search/scripts/directives/directives.js'
+    '@PugAlOdalBundle/Resources/public/js/search/scripts/services/services.js'
+    '@PugAlOdalBundle/Resources/public/js/search/scripts/controllers/controllers.js'%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
