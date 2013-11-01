@@ -2,7 +2,6 @@
 */logs/*
 */cache/*
 web/uploads/*
-web/bundles/*
 web/.htaccess
 /vendor/
 /components/

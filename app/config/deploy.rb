@@ -22,5 +22,4 @@ role :app, domain, :primary => true
 
 set :use_sudo, false
 set :keep_releases, 3
-set :dump_assetic_assets, true
 
