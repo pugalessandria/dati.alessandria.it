@@ -2,35 +2,44 @@
 
 var app = angular.module('search', ['ngRoute', 'search.directives', 'search.services']);
 
-app.controller('SearchCtrl', ['$scope', 'Search', '$rootScope', function ($scope, Search, $rootScope) {
+app.controller('AppCtrl', ['$scope', '$location', '$route', 'Search', 'DatasetHolder', function ($scope, $location, $route, Search, DatasetHolder) {
     $scope.search = function () {
-        $rootScope.$broadcast('search:start');
-        $scope.results = Search.query({keywords: $scope.keywords}, function () {
-            $rootScope.$broadcast('search:end');
+        $scope.$emit('search:start');
+        $scope.datasets = Search.query({keywords: $scope.keywords}, function (datasets, responseHeaders) {
+            DatasetHolder.setDatasets(datasets);
+            $location.path('/search/' + $scope.keywords);
+            $scope.$emit('search:end');
         });
     }
 }]);
 
-app.controller('DetailCtrl', ['$scope', 'dataset', '$location', function ($scope, dataset, $location) {
+app.controller('SearchCtrl', ['$scope', '$route', 'DatasetHolder', function ($scope, $route, DatasetHolder) {
+    $scope.keywords = $route.current.params.keywords;
+    $scope.datasets = DatasetHolder.getDatasets();
+}]);
+
+app.controller('DetailCtrl', ['$scope', 'dataset', '$location', 'DatasetHolder', function ($scope, dataset, $location, DatasetHolder) {
     $scope.dataset = dataset;
 
     $scope.back = function () {
-        $location.path('/');
+        $location.path('/search/sesia');
     }
 }]);
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.
-        when('/', {
+        when('/search/:keywords', {
             controller: 'SearchCtrl',
             templateUrl: '/bundles/pugalodal/js/search/views/search.html'
         }).when('/view/:datasetId', {
             controller: 'DetailCtrl',
             resolve: {
-                dataset: function (DatasetLoader) {
-                    return DatasetLoader();
+                'dataset': function (Dataset) {
+                    return Dataset();
                 }
             },
             templateUrl: '/bundles/pugalodal/js/search/views/detail.html'
         }).otherwise({redirectTo: '/'});
+
+    $locationProvider.html5Mode(false);
 }]);

@@ -82,7 +82,8 @@
     <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
 
-    {% javascripts '@PugAlOdalBundle/Resources/public/js/vendor/angular.min.js'
+    {% javascripts '@PugAlOdalBundle/Resources/public/js/vendor/modernizr.js'
+    '@PugAlOdalBundle/Resources/public/js/vendor/angular.min.js'
     '@PugAlOdalBundle/Resources/public/js/vendor/angular-resource.min.js'
     '@PugAlOdalBundle/Resources/public/js/vendor/angular-route.min.js' %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
