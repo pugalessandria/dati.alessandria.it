@@ -1,20 +1,9 @@
 <div class="row">
-    <div class="col-md-4">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Parole chiave" ng-model="keywords"/>
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button" ng-click="search()">Cerca</button>
-            </span>
-        </div>
-    </div>
-</div>
-
-<div class="row">
     <div class="col-md-12">
         <ul id="results">
-            <li ng-repeat="result in results"><a href="dataset#/view/{{result.id}}">{{result.title}}</a></li>
+            <li ng-repeat="dataset in datasets"><a href="dataset#/view/{{dataset.id}}">{{dataset.title}}</a></li>
         </ul>
 
-        <p ng-hide="results.length">Nessun risultato</p>
+        <p ng-hide="datasets.length">Nessun risultato</p>
     </div>
 </div>

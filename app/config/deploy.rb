@@ -16,6 +16,7 @@ set :use_set_permissions, true
 set :scm, :git
 set :repository, "https://github.com/pugalessandria/dati.alessandria.it.git"
 set :deploy_via, :remote_cache
+set :branch, "dev"
 
 role :web, domain
 role :app, domain, :primary => true
