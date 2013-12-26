@@ -20,7 +20,7 @@ class DatasetController extends Controller {
     $response = new Response();
 
     $content = $this->renderView(
-      'AcmeHelloBundle:Hello:index.html.twig',
+      'PugAlOdalBundle:Dataset:datasets.html.twig',
       array('title' => 'Datasets', 'datasets' => $datasets,)
     );
     $response->setMaxAge(600);
