@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12" style="position:relative">
+            <ul>
+                {% for dataset in datasets %}
+                    <li><a href="{{ path('dataset', {'id': dataset.id}) }}">{{ dataset.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
