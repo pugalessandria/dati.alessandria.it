@@ -17,15 +17,15 @@ class DatasetController extends Controller {
   public function datasetsAction(Request $request) {
     $datasets = $this->get('pug_al_odal.ApiClient')->listAll();
 
-    $response = new Response();
-
     $content = $this->renderView(
       'PugAlOdalBundle:Dataset:datasets.html.twig',
       array('title' => 'Datasets', 'datasets' => $datasets,)
     );
+
+    $response = new Response($content);
     $response->setMaxAge(600);
 
-    return new Response($content);
+    return $response;
   }
 
   /**
