@@ -48,12 +48,8 @@
                         </button>
                         <a class="navbar-brand" href="/">dati.alessandria.it</a>
                     </div>
-
-                    <nav class="collapse navbar-collapse">
-                        {{ knp_menu_render('PugAlOdalBundle:Builder:mainMenu', {'nav_type': 'navbar'}) }}
-                    </nav>
+                    {{ knp_menu_render('PugAlOdalBundle:Builder:mainMenu', {'style': 'navbar'}) }}
                 </div>
-
             </header>
         {% endblock navigation %}
 

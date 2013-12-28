@@ -15,9 +15,10 @@ class AppKernel extends Kernel {
       new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
       new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
       // contrib bundles
-      new Bc\Bundle\BootstrapBundle\BcBootstrapBundle(),
+      new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
       new Knp\Bundle\MenuBundle\KnpMenuBundle(),
       new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+      new Desarrolla2\Bundle\RSSClientBundle\RSSClientBundle(),
       // custom bundles
       new PugAl\Bundle\OdalBundle\PugAlOdalBundle(),
     );

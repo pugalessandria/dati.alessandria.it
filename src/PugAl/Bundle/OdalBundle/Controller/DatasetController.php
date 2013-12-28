@@ -2,12 +2,10 @@
 
 namespace PugAl\Bundle\OdalBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
 
-class DatasetController extends Controller {
+class DatasetController extends CachedController {
 
   /**
    * @Route("/datasets", name="datasets")
@@ -20,10 +18,7 @@ class DatasetController extends Controller {
       array('title' => 'Datasets', 'datasets' => $datasets)
     );
 
-    $response = new Response($content);
-    $response->setMaxAge(600);
-
-    return $response;
+    return $this->returnResponse($content);
   }
 
   /**
@@ -37,10 +32,7 @@ class DatasetController extends Controller {
       array('title' => $dataset['title'], 'dataset' => $dataset)
     );
 
-    $response = new Response($content);
-    $response->setMaxAge(600);
-
-    return $response;
+    return $this->returnResponse($content);
   }
 
 }

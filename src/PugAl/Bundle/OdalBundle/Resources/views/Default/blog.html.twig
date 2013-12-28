@@ -1,0 +1,15 @@
+<section id="blog">
+    <h3>Ultime dal blog</h3>
+    {% for feed in feeds %}
+        <article>
+            <header style="border-bottom:1px solid #ccc;padding-bottom:5px;margin-bottom:5px">
+                <time>{{ feed.pubDate|date('d/m/Y H:i') }}</time>
+                <br/>
+                <a href="{{ feed.link }}" target="_blank">{{ feed.title }}</a>
+            </header>
+
+        </article>
+    {% else %}
+        <p>Not news :(</p>
+    {% endfor %}
+</section>

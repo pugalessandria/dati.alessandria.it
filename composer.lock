@@ -3,35 +3,38 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0629d27e9889f2071ba6432a47e20cca",
+    "hash": "04055eb9debeb2fdabb8bdeb0b2979f0",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
-            "version": "dev-master",
-            "target-dir": "Bc/Bundle/BootstrapBundle",
+            "version": "2.0.x-dev",
+            "target-dir": "Braincrafted/Bundle/BootstrapBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/braincrafted/bootstrap-bundle.git",
-                "reference": "c086ff70f6746ae4290ba50a68b6ab159925ceaa"
+                "reference": "77d6f73765d8710413f6b7eb7c3a7da83558ccb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/c086ff70f6746ae4290ba50a68b6ab159925ceaa",
-                "reference": "c086ff70f6746ae4290ba50a68b6ab159925ceaa",
+                "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/77d6f73765d8710413f6b7eb7c3a7da83558ccb1",
+                "reference": "77d6f73765d8710413f6b7eb7c3a7da83558ccb1",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.3.3",
+                "symfony/console": "~2.3",
+                "symfony/finder": "~2.3",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3"
             },
             "require-dev": {
-                "instaclick/php-code-sniffer": "dev-master",
-                "instaclick/symfony2-coding-standard": "dev-master",
-                "knplabs/knp-markdown-bundle": "dev-master",
-                "knplabs/knp-menu": "dev-master",
-                "knplabs/knp-menu-bundle": "dev-master",
+                "knplabs/knp-menu": "~2.0@alpha",
+                "knplabs/knp-menu-bundle": "~2.0@alpha",
                 "knplabs/knp-paginator-bundle": "dev-master",
-                "nikic/php-parser": "dev-master",
-                "phpmd/phpmd": "1.4.*"
+                "mockery/mockery": "0.8.*",
+                "phpunit/phpunit": "3.7.*",
+                "symfony/assetic-bundle": "~2.3"
             },
             "suggest": {
                 "knplabs/knp-menu": "Required to use KnpMenuBundle.",
@@ -42,7 +45,7 @@
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
-                    "Bc\\Bundle\\BootstrapBundle": ""
+                    "Braincrafted\\Bundle\\BootstrapBundle": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -57,11 +60,11 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Twitter Bootstrap for Symfony2",
+            "description": "BraincraftedBootstrapBundle integrates Bootstrap into Symfony2 by providing templates, Twig extensions, services and commands.",
             "keywords": [
                 "bootstrap"
             ],
-            "time": "2013-07-28 21:51:00"
+            "time": "2013-12-28 17:23:34"
         },
         {
             "name": "components/jquery",
@@ -108,6 +111,152 @@
             "description": "jQuery JavaScript Library",
             "homepage": "http://jquery.com",
             "time": "2013-11-28 14:53:13"
+        },
+        {
+            "name": "desarrolla2/cache",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/desarrolla2/Cache.git",
+                "reference": "b1a09cccdca39a6e0a3686b8a059659cdd125916"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/desarrolla2/Cache/zipball/b1a09cccdca39a6e0a3686b8a059659cdd125916",
+                "reference": "b1a09cccdca39a6e0a3686b8a059659cdd125916",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "predis/predis": "*",
+                "raulfraile/ladybug": "v0.7",
+                "symfony/yaml": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Desarrolla2\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel González",
+                    "homepage": "http://desarrolla2.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides an cache interface for several adapters (Apc, File, Mongo, Memcached, Mysql, ... )",
+            "homepage": "https://github.com/desarrolla2/Cache/blob/master/README.md",
+            "keywords": [
+                "apc",
+                "cache",
+                "file",
+                "memcached",
+                "mongo",
+                "mysql",
+                "redis"
+            ],
+            "time": "2013-10-07 20:14:38"
+        },
+        {
+            "name": "desarrolla2/rss-client",
+            "version": "v2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/desarrolla2/RSSClient.git",
+                "reference": "a6719ccd1bb0ca1efe243a3165cfc13c0b5f9843"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/desarrolla2/RSSClient/zipball/a6719ccd1bb0ca1efe243a3165cfc13c0b5f9843",
+                "reference": "a6719ccd1bb0ca1efe243a3165cfc13c0b5f9843",
+                "shasum": ""
+            },
+            "require": {
+                "desarrolla2/cache": "1.*",
+                "ezyang/htmlpurifier": "4.5.*",
+                "guzzle/guzzle": "3.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "raulfraile/ladybug": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Desarrolla2\\RSSClient\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel González",
+                    "homepage": "http://desarrolla2.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple to use RSS client library.",
+            "keywords": [
+                "atom10",
+                "feed",
+                "feed parser",
+                "rss",
+                "rss20"
+            ],
+            "time": "2013-12-04 09:19:50"
+        },
+        {
+            "name": "desarrolla2/rss-client-bundle",
+            "version": "dev-master",
+            "target-dir": "Desarrolla2/Bundle/RSSClientBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/desarrolla2/RSSClientBundle.git",
+                "reference": "aeadef09d0221a74dacc07b41fe1219d327840b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/desarrolla2/RSSClientBundle/zipball/aeadef09d0221a74dacc07b41fe1219d327840b7",
+                "reference": "aeadef09d0221a74dacc07b41fe1219d327840b7",
+                "shasum": ""
+            },
+            "require": {
+                "desarrolla2/rss-client": "~2",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "~2"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Desarrolla2\\Bundle\\RSSClientBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel González",
+                    "homepage": "http://desarrolla2.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This Bundle provides a way to get rss feeds friendly.",
+            "keywords": [
+                "client",
+                "rss"
+            ],
+            "time": "2013-11-25 08:37:30"
         },
         {
             "name": "doctrine/annotations",
@@ -713,17 +862,62 @@
             "time": "2013-05-11 07:51:12"
         },
         {
-            "name": "guzzle/guzzle",
-            "version": "v3.7.4",
+            "name": "ezyang/htmlpurifier",
+            "version": "v4.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "b170b028c6bb5799640e46c8803015b0f9a45ed9"
+                "url": "https://github.com/ezyang/htmlpurifier.git",
+                "reference": "d516e2f8de435ea78cc6152abc425d3ff2c4d289"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b170b028c6bb5799640e46c8803015b0f9a45ed9",
-                "reference": "b170b028c6bb5799640e46c8803015b0f9a45ed9",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d516e2f8de435ea78cc6152abc425d3ff2c4d289",
+                "reference": "d516e2f8de435ea78cc6152abc425d3ff2c4d289",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "HTMLPurifier": "library/"
+                },
+                "files": [
+                    "library/HTMLPurifier.composer.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Edward Z. Yang",
+                    "email": "admin@htmlpurifier.org",
+                    "homepage": "http://ezyang.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Standards compliant HTML filter written in PHP",
+            "homepage": "http://htmlpurifier.org/",
+            "keywords": [
+                "html"
+            ],
+            "time": "2013-02-18 00:04:08"
+        },
+        {
+            "name": "guzzle/guzzle",
+            "version": "v3.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "b4a3ce8c05e777fa18b802956d5d0e38ad338a69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b4a3ce8c05e777fa18b802956d5d0e38ad338a69",
+                "reference": "b4a3ce8c05e777fa18b802956d5d0e38ad338a69",
                 "shasum": ""
             },
             "require": {
@@ -767,7 +961,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.7-dev"
+                    "dev-master": "3.8-dev"
                 }
             },
             "autoload": {
@@ -802,21 +996,21 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-10-02 20:47:00"
+            "time": "2013-12-05 23:39:20"
         },
         {
             "name": "incenteev/composer-parameter-handler",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "target-dir": "Incenteev/ParameterHandler",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Incenteev/ParameterHandler.git",
-                "reference": "2310d74a751025f02221e0faf69d31440df71b73"
+                "reference": "143272a0a09c62616a3c8011fc165a10c6b35241"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/2310d74a751025f02221e0faf69d31440df71b73",
-                "reference": "2310d74a751025f02221e0faf69d31440df71b73",
+                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/143272a0a09c62616a3c8011fc165a10c6b35241",
+                "reference": "143272a0a09c62616a3c8011fc165a10c6b35241",
                 "shasum": ""
             },
             "require": {
@@ -824,12 +1018,14 @@
                 "symfony/yaml": "~2.0"
             },
             "require-dev": {
-                "composer/composer": "*"
+                "composer/composer": "1.0.*@dev",
+                "phpspec/prophecy-phpunit": "~1.0",
+                "symfony/filesystem": "~2.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -852,7 +1048,7 @@
             "keywords": [
                 "parameters management"
             ],
-            "time": "2013-04-06 17:15:44"
+            "time": "2013-12-07 10:10:39"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1090,12 +1286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "769b83d01b3f76b011522599bd48e5e202d94ff4"
+                "reference": "e817cbddfa13cb9a72bf1ddcaf6a36b99cda5c2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/769b83d01b3f76b011522599bd48e5e202d94ff4",
-                "reference": "769b83d01b3f76b011522599bd48e5e202d94ff4",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/e817cbddfa13cb9a72bf1ddcaf6a36b99cda5c2d",
+                "reference": "e817cbddfa13cb9a72bf1ddcaf6a36b99cda5c2d",
                 "shasum": ""
             },
             "require": {
@@ -1140,7 +1336,7 @@
                 "pagination",
                 "paginator"
             ],
-            "time": "2013-09-23 09:04:09"
+            "time": "2013-12-19 09:14:09"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -1220,37 +1416,41 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/misd-service-development/guzzle-bundle.git",
-                "reference": "6ae9e962f72cea8df95d816a03b6a0b0442043eb"
+                "reference": "9c6880f7d4d49d1d751a20ba8fd88dbaaf99a4fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/misd-service-development/guzzle-bundle/zipball/6ae9e962f72cea8df95d816a03b6a0b0442043eb",
-                "reference": "6ae9e962f72cea8df95d816a03b6a0b0442043eb",
+                "url": "https://api.github.com/repos/misd-service-development/guzzle-bundle/zipball/9c6880f7d4d49d1d751a20ba8fd88dbaaf99a4fc",
+                "reference": "9c6880f7d4d49d1d751a20ba8fd88dbaaf99a4fc",
                 "shasum": ""
             },
             "require": {
                 "guzzle/guzzle": "~3.0",
                 "php": ">=5.3.3",
-                "sensio/framework-extra-bundle": "~2.2",
                 "symfony/framework-bundle": "~2.2"
             },
             "conflict": {
-                "jms/serializer-bundle": "<0.11-dev"
+                "jms/serializer-bundle": "<0.11-dev",
+                "sensio/framework-extra-bundle": ">=4.0-dev"
             },
             "require-dev": {
+                "doctrine/cache": "~1.0",
                 "jms/serializer-bundle": "~0.11",
+                "phpunit/phpunit": "~3.7",
+                "sensio/framework-extra-bundle": "~2.2",
                 "symfony/form": "~2.2",
                 "symfony/monolog-bundle": "~2.2",
                 "symfony/yaml": "~2.2"
             },
             "suggest": {
                 "jms/serializer-bundle": "Serialize/deserialize objects to/from XML, JSON and YAML",
+                "sensio/framework-extra-bundle": "Provides a parameter converter",
                 "symfony/monolog-bundle": "Log requests"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -1281,7 +1481,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2013-06-12 10:47:16"
+            "time": "2013-12-24 09:34:18"
         },
         {
             "name": "monolog/monolog",
@@ -2044,16 +2244,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.14.2",
+            "version": "v1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64"
+                "reference": "85e4ff98000157ff753d934b9f13659a953f5666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/ca445842fcea4f844d68203ffa2d00f5e3cdea64",
-                "reference": "ca445842fcea4f844d68203ffa2d00f5e3cdea64",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/85e4ff98000157ff753d934b9f13659a953f5666",
+                "reference": "85e4ff98000157ff753d934b9f13659a953f5666",
                 "shasum": ""
             },
             "require": {
@@ -2062,7 +2262,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.14-dev"
+                    "dev-master": "1.15-dev"
                 }
             },
             "autoload": {
@@ -2089,7 +2289,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-10-30 08:20:53"
+            "time": "2013-12-06 07:47:10"
         }
     ],
     "packages-dev": [
@@ -2105,7 +2305,8 @@
         "knplabs/knp-menu-bundle": 20,
         "knplabs/knp-menu": 20,
         "knplabs/knp-paginator-bundle": 20,
-        "misd/guzzle-bundle": 20
+        "misd/guzzle-bundle": 20,
+        "desarrolla2/rss-client-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
