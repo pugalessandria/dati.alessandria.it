@@ -7,7 +7,7 @@
 
     <title>
         {% block title %}
-            {% if title is defined %}
+            {% if title is not null %}
                 {{ title }} | dati.alesssandria.it
             {% else %}
                 dati.alesssandria.it
@@ -71,9 +71,13 @@
 
     <footer id="footer">
         <div class="container">
-            <p class="muted credit pull-left">OpenDataAlessandria</p>
+            <div class="col-xs-6">
+                <p class="muted credit pull-left">OpenDataAlessandria</p>
+            </div>
 
-            <p class="muted credit pull-right">Made with love in Alessandria</p>
+            <div class="col-xs-6">
+                <p class="muted credit pull-right">Made with love in Alessandria</p>
+            </div>
         </div>
     </footer>
 {% endblock %}

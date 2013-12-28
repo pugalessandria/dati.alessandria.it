@@ -2,8 +2,20 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-12" style="position:relative">
-            {{ dataset.notes }}
+        <div class="col-md-12">
+            <div>
+                {{ dataset.notes }}
+            </div>
+            <h4>Parole chiave</h4>
+            <p>{{ dataset.tags|join(', ') }}</p>
+            <h4>URL Fonte Metadato</h4>
+            <p><a href="{{ dataset.extras.visualization_url }}">{{ dataset.extras.visualization_url }}</a></p>
+        </div>
+    </div>
+    <div class="row" style="margin: 20px 0">
+        <div class="col-md-12">
+            <a href="{{ path('datasets') }}" class="btn btn-primary pull-right" style="margin-left: 20px">Indietro</a>
+            <a href="{{ dataset.url }}" class="btn btn-success pull-right">Visualizza su dati.piemonte.it</a>
         </div>
     </div>
 {% endblock %}
