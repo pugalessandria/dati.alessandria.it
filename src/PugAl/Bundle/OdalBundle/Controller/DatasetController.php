@@ -11,7 +11,8 @@ class DatasetController extends CachedController {
    * @Route("/datasets", name="datasets")
    */
   public function datasetsAction(Request $request) {
-    $datasets = $this->get('pug_al_odal.ApiClient')->listAll();
+    $search = $request->get('search');
+    $datasets = $this->get('pug_al_odal.ApiClient')->listAll($search['keywords']);
 
     $content = $this->renderView(
       'PugAlOdalBundle:Dataset:datasets.html.twig',

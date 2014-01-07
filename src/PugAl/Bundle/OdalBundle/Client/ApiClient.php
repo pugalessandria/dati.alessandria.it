@@ -9,12 +9,21 @@ class ApiClient {
   private $url = 'http://www.dati.piemonte.it';
 
   /**
+   * @param null $keywords
+   *
    * @return array
    */
-  public function listAll() {
+  public function listAll($keywords = NULL) {
     $client = new Client($this->url);
+
     //$request = $client->get('/rpapisrv/api/search/package?q=tag:alessandria+keyword');
-    $request = $client->get('/rpapisrv/api/search/package?q=' . 'sesia');
+
+    $url = '/rpapisrv/api/search/package?q=alessandria+';
+    if ($keywords) {
+      $url .= $keywords;
+    }
+    $request = $client->get($url);
+
     $response = $request->send();
     $body = $response->json();
 

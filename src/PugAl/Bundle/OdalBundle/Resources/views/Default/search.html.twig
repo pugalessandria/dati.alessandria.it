@@ -1,0 +1,18 @@
+<!--form class="navbar-form navbar-right" role="search">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Cerca nei datasets">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Cerca</button>
+                                </span>
+    </div>
+</form-->
+
+
+{{ form_start(form,{ 'attr': {'class': 'navbar-form navbar-right' }} ) }}
+<div class="input-group">
+    {{ form_widget(form.keywords, { 'style': 'inline' }) }}
+    <span class="input-group-btn">
+        {{ form_widget(form.cerca) }}
+    </span>
+</div>
+{{ form_end(form) }}
