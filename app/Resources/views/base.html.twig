@@ -36,10 +36,10 @@
 {% block body %}
     <div id="wrap">
         {% block navigation %}
-            <header class="navbar navbar-default navbar-fixed-top">
+            <header role="banner" class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                                 data-target=".navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
@@ -48,8 +48,9 @@
                         </button>
                         <a class="navbar-brand" href="/">dati.alessandria.it</a>
                     </div>
-                    {{ knp_menu_render('PugAlOdalBundle:Builder:mainMenu', {'style': 'navbar'}) }}
-                    {{ render(controller('PugAlOdalBundle:Default:search')) }}
+                    <nav role="navigation" class="navbar-collapse collapse" style="height: 1px;">
+                        {{ knp_menu_render('PugAlOdalBundle:Builder:mainMenu', {'style': 'navbar'}) }}
+                    </nav>
                 </div>
             </header>
         {% endblock navigation %}
