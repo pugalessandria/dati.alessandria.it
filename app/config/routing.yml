@@ -1,3 +1,7 @@
+wellnet_regilo:
+    resource: "@WellnetRegiloBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pugal_odal:
     resource: "@PugAlOdalBundle/Resources/config/routing.yml"
     prefix:   /
